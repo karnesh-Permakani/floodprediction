@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloodGuard TN | Advanced Flood Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i data-lucide="waves" class="logo-icon"></i>
+            <span>FloodGuard <span>TN</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#benefits">Benefits</a>
+            <a href="#history">History</a>
+            <a href="#live-data">Live Status</a>
+        </div>
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            <span id="system-status">System Live</span>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 id="hero-title">Next-Gen Flood <br><span class="highlight">Intelligence</span></h1>
+                <p id="hero-subtitle">Real-time monitoring, AI-driven predictions, and emergency response coordination for Tamil Nadu.</p>
+                <div class="hero-stats" id="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">38</span>
+                        <span class="stat-label">Districts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Monitoring</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="live-risk-stat">Low</span>
+                        <span class="stat-label">Current Risk</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="login-container" id="login-section">
+                <div class="login-card">
+                    <div class="login-header">
+                        <div class="header-badge" id="access-badge">USER ACCESS</div>
+                        <h2>Authentication</h2>
+                        <p>Please switch and sign in</p>
+                    </div>
+
+                    <div class="switch-wrapper">
+                        <div class="switch-container">
+                            <div class="switch-bg"></div>
+                            <button class="switch-btn active" id="user-toggle">
+                                <i data-lucide="user"></i>
+                                User
+                            </button>
+                            <button class="switch-btn" id="admin-toggle">
+                                <i data-lucide="shield"></i>
+                                Admin
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-wrapper">
+                        <!-- User Form -->
+                        <div class="form-content active" id="user-form">
+                            <div class="icon-box">
+                                <i data-lucide="user" class="form-icon"></i>
+                            </div>
+                            <p class="form-desc">Access the public flood dashboard, risk maps, and live weather reports.</p>
+                            <button class="login-btn" onclick="navigateToDashboard('user', event)">
+                                Enter Dashboard
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Admin Form -->
+                        <div class="form-content" id="admin-form">
+                            <div class="icon-box">
+                                <i data-lucide="shield-check" class="form-icon"></i>
+                            </div>
+                            <div class="input-group">
+                                <label for="admin-pass">Security Password</label>
+                                <div class="input-wrapper">
+                                    <i data-lucide="lock" class="input-icon"></i>
+                                    <input type="password" id="admin-pass" placeholder="••••••••">
+                                </div>
+                            </div>
+                            <button class="login-btn admin-btn" onclick="handleAdminLogin(event)">
+                                Admin Login
+                                <i data-lucide="log-in"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section" id="benefits">
+            <div class="section-header reveal">
+                <h2>Why Choose <span class="highlight">FloodGuard?</span></h2>
+                <p>Advanced features designed to save lives and protect infrastructure.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i data-lucide="zap"></i></div>
+                    <h3>Early Warning</h3>
+                    <p>Receive alerts hours before flood levels reach critical points in your district.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i data-lucide="brain"></i></div>
+                    <h3>AI Predictions</h3>
+                    <p>Our ML models analyze rainfall, water levels, and tidal heights for 98% accuracy.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i data-lucide="map"></i></div>
+                    <h3>Interactive Maps</h3>
+                    <p>Visual representation of flood-prone zones across all 38 districts of Tamil Nadu.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon"><i data-lucide="shield"></i></div>
+                    <h3>Community Safety</h3>
+                    <p>Unified platform for government and public to coordinate emergency efforts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Data Section -->
+        <section class="live-data-section" id="live-data">
+            <div class="section-header reveal">
+                <i data-lucide="activity" class="header-icon"></i>
+                <h2>Live Sensor Intelligence</h2>
+                <p>Real-time data stream from IoT node (172.16.48.13)</p>
+            </div>
+
+            <div class="data-grid">
+                <div class="data-card reveal">
+                    <div class="data-icon blue">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <div class="data-info">
+                        <h3>Water Level</h3>
+                        <div class="value-row">
+                            <span class="value" id="sensor-water-level">--</span>
+                            <span class="unit">m</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card reveal">
+                    <div class="data-icon cyan">
+                        <i data-lucide="cloud-rain"></i>
+                    </div>
+                    <div class="data-info">
+                        <h3>Rainfall</h3>
+                        <div class="value-row">
+                            <span class="value" id="sensor-rainfall">--</span>
+                            <span class="unit">mm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card reveal">
+                    <div class="data-icon orange">
+                        <i data-lucide="thermometer"></i>
+                    </div>
+                    <div class="data-info">
+                        <h3>Temperature</h3>
+                        <div class="value-row">
+                            <span class="value" id="sensor-temp">--</span>
+                            <span class="unit">°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sensor-footer reveal">
+                <span class="last-updated">Last Updated: <span id="last-update-time">Searching...</span></span>
+                <div class="connection-status">
+                    <span class="status-indicator" id="sensor-status-dot"></span>
+                    <span id="sensor-status-text">Connecting to sensor...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="history-section" id="history">
+            <div class="section-header reveal">
+                <h2>Flood <span class="highlight">History</span></h2>
+                <p>Learning from the past to protect the future.</p>
+            </div>
+            <div class="history-grid">
+                <div class="history-item reveal">
+                    <div class="history-img">
+                        <img src="../chennai_flood_history_1778744373358.png" alt="Chennai 2015">
+                        <div class="history-overlay">
+                            <h3>Chennai 2015</h3>
+                            <p>One of the most devastating floods in history.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="history-item reveal">
+                    <div class="history-img">
+                        <img src="../smart_monitoring_system_1778744795587.png" alt="Smart Monitoring">
+                        <div class="history-overlay">
+                            <h3>Modern Response</h3>
+                            <p>How technology has evolved since 2015.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Safety Tips Section -->
+        <section class="safety-tips-section" id="safety">
+            <div class="section-header reveal">
+                <h2>Flood <span class="highlight">Safety Tips</span></h2>
+                <p>Essential guidelines for emergency situations.</p>
+            </div>
+            <div class="safety-grid">
+                <div class="safety-card reveal">
+                    <div class="safety-num">01</div>
+                    <div class="safety-content">
+                        <h3>Stay Informed</h3>
+                        <p>Listen to local news and monitor the FloodGuard dashboard for risk updates.</p>
+                    </div>
+                </div>
+                <div class="safety-card reveal">
+                    <div class="safety-num">02</div>
+                    <div class="safety-content">
+                        <h3>Evacuation Kit</h3>
+                        <p>Keep a bag ready with water, food, first aid, and important documents.</p>
+                    </div>
+                </div>
+                <div class="safety-card reveal">
+                    <div class="safety-num">03</div>
+                    <div class="safety-content">
+                        <h3>Higher Ground</h3>
+                        <p>If water levels rise, move to higher floors immediately. Avoid basements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 FloodGuard TN. Advanced Environmental Monitoring System.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

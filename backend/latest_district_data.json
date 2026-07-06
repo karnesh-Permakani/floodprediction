@@ -1,0 +1,306 @@
+{
+  "Chennai": {
+    "rainfall_mm": 1.5,
+    "temperature_c": 36.5,
+    "water_level_m": 2.52,
+    "humidity_pct": 58.9,
+    "wind_speed_kmh": 18.1,
+    "tidal_height_m": 2.18
+  },
+  "Coimbatore": {
+    "rainfall_mm": 5.8,
+    "temperature_c": 37.1,
+    "water_level_m": 2.03,
+    "humidity_pct": 64.9,
+    "wind_speed_kmh": 22.4,
+    "tidal_height_m": 0.0
+  },
+  "Madurai": {
+    "rainfall_mm": 2.4,
+    "temperature_c": 38.0,
+    "water_level_m": 9.21,
+    "humidity_pct": 56.5,
+    "wind_speed_kmh": 24.9,
+    "tidal_height_m": 0.0
+  },
+  "Tiruchirappalli": {
+    "rainfall_mm": 2.2,
+    "temperature_c": 38.3,
+    "water_level_m": 0.77,
+    "humidity_pct": 58.3,
+    "wind_speed_kmh": 21.6,
+    "tidal_height_m": 0.0
+  },
+  "Salem": {
+    "rainfall_mm": 2.7,
+    "temperature_c": 39.3,
+    "water_level_m": 0.94,
+    "humidity_pct": 58.0,
+    "wind_speed_kmh": 12.9,
+    "tidal_height_m": 0.0
+  },
+  "Tirunelveli": {
+    "rainfall_mm": 2.6,
+    "temperature_c": 34.6,
+    "water_level_m": 6.17,
+    "humidity_pct": 58.3,
+    "wind_speed_kmh": 24.7,
+    "tidal_height_m": 2.11
+  },
+  "Tiruppur": {
+    "rainfall_mm": 1.9,
+    "temperature_c": 36.8,
+    "water_level_m": 0.66,
+    "humidity_pct": 60.4,
+    "wind_speed_kmh": 23.7,
+    "tidal_height_m": 0.0
+  },
+  "Vellore": {
+    "rainfall_mm": 2.8,
+    "temperature_c": 38.2,
+    "water_level_m": 13.93,
+    "humidity_pct": 57.3,
+    "wind_speed_kmh": 16.0,
+    "tidal_height_m": 0.0
+  },
+  "Erode": {
+    "rainfall_mm": 2.2,
+    "temperature_c": 38.2,
+    "water_level_m": 0.77,
+    "humidity_pct": 64.5,
+    "wind_speed_kmh": 19.9,
+    "tidal_height_m": 0.0
+  },
+  "Thoothukudi": {
+    "rainfall_mm": 2.6,
+    "temperature_c": 35.7,
+    "water_level_m": 2.91,
+    "humidity_pct": 77.7,
+    "wind_speed_kmh": 15.7,
+    "tidal_height_m": 2.4
+  },
+  "Dindigul": {
+    "rainfall_mm": 2.3,
+    "temperature_c": 39.4,
+    "water_level_m": 0.8,
+    "humidity_pct": 59.1,
+    "wind_speed_kmh": 24.0,
+    "tidal_height_m": 0.0
+  },
+  "Thanjavur": {
+    "rainfall_mm": 3.4,
+    "temperature_c": 35.7,
+    "water_level_m": 15.0,
+    "humidity_pct": 59.8,
+    "wind_speed_kmh": 19.5,
+    "tidal_height_m": 2.37
+  },
+  "Ranipet": {
+    "rainfall_mm": 3.6,
+    "temperature_c": 37.6,
+    "water_level_m": 0.05,
+    "humidity_pct": 76.0,
+    "wind_speed_kmh": 22.9,
+    "tidal_height_m": 0.0
+  },
+  "Sivaganga": {
+    "rainfall_mm": 2.8,
+    "temperature_c": 39.2,
+    "water_level_m": 0.98,
+    "humidity_pct": 56.3,
+    "wind_speed_kmh": 15.5,
+    "tidal_height_m": 0.0
+  },
+  "Virudhunagar": {
+    "rainfall_mm": 2.5,
+    "temperature_c": 36.2,
+    "water_level_m": 15.0,
+    "humidity_pct": 67.5,
+    "wind_speed_kmh": 10.8,
+    "tidal_height_m": 0.0
+  },
+  "Nagapattinam": {
+    "rainfall_mm": 4.4,
+    "temperature_c": 37.1,
+    "water_level_m": 3.54,
+    "humidity_pct": 69.5,
+    "wind_speed_kmh": 26.5,
+    "tidal_height_m": 2.18
+  },
+  "Kancheepuram": {
+    "rainfall_mm": 3.4,
+    "temperature_c": 34.2,
+    "water_level_m": 2.01,
+    "humidity_pct": 56.5,
+    "wind_speed_kmh": 22.0,
+    "tidal_height_m": 2.14
+  },
+  "Tiruvallur": {
+    "rainfall_mm": 3.6,
+    "temperature_c": 36.2,
+    "water_level_m": 13.42,
+    "humidity_pct": 70.9,
+    "wind_speed_kmh": 15.0,
+    "tidal_height_m": 2.22
+  },
+  "Cuddalore": {
+    "rainfall_mm": 4.1,
+    "temperature_c": 37.7,
+    "water_level_m": 5.58,
+    "humidity_pct": 58.6,
+    "wind_speed_kmh": 27.2,
+    "tidal_height_m": 2.27
+  },
+  "Krishnagiri": {
+    "rainfall_mm": 2.1,
+    "temperature_c": 37.7,
+    "water_level_m": 13.54,
+    "humidity_pct": 60.1,
+    "wind_speed_kmh": 15.8,
+    "tidal_height_m": 0.0
+  },
+  "Dharmapuri": {
+    "rainfall_mm": 2.6,
+    "temperature_c": 38.6,
+    "water_level_m": 12.62,
+    "humidity_pct": 59.0,
+    "wind_speed_kmh": 13.2,
+    "tidal_height_m": 0.0
+  },
+  "Perambalur": {
+    "rainfall_mm": 2.6,
+    "temperature_c": 39.1,
+    "water_level_m": 14.45,
+    "humidity_pct": 57.8,
+    "wind_speed_kmh": 14.3,
+    "tidal_height_m": 0.0
+  },
+  "Ariyalur": {
+    "rainfall_mm": 3.2,
+    "temperature_c": 38.0,
+    "water_level_m": 1.12,
+    "humidity_pct": 58.0,
+    "wind_speed_kmh": 12.5,
+    "tidal_height_m": 0.0
+  },
+  "Karur": {
+    "rainfall_mm": 1.8,
+    "temperature_c": 37.0,
+    "water_level_m": 0.63,
+    "humidity_pct": 57.1,
+    "wind_speed_kmh": 14.2,
+    "tidal_height_m": 0.0
+  },
+  "Namakkal": {
+    "rainfall_mm": 2.3,
+    "temperature_c": 36.4,
+    "water_level_m": 0.8,
+    "humidity_pct": 57.6,
+    "wind_speed_kmh": 8.6,
+    "tidal_height_m": 0.0
+  },
+  "Nilgiris": {
+    "rainfall_mm": 3.4,
+    "temperature_c": 37.1,
+    "water_level_m": 1.19,
+    "humidity_pct": 55.3,
+    "wind_speed_kmh": 18.0,
+    "tidal_height_m": 0.0
+  },
+  "Pudukkottai": {
+    "rainfall_mm": 2.7,
+    "temperature_c": 36.7,
+    "water_level_m": 2.94,
+    "humidity_pct": 60.0,
+    "wind_speed_kmh": 26.1,
+    "tidal_height_m": 2.36
+  },
+  "Ramanathapuram": {
+    "rainfall_mm": 3.1,
+    "temperature_c": 36.6,
+    "water_level_m": 15.0,
+    "humidity_pct": 60.0,
+    "wind_speed_kmh": 28.5,
+    "tidal_height_m": 2.34
+  },
+  "Theni": {
+    "rainfall_mm": 6.4,
+    "temperature_c": 37.9,
+    "water_level_m": 7.68,
+    "humidity_pct": 59.1,
+    "wind_speed_kmh": 23.7,
+    "tidal_height_m": 0.0
+  },
+  "Tiruvannamalai": {
+    "rainfall_mm": 3.1,
+    "temperature_c": 39.5,
+    "water_level_m": 10.37,
+    "humidity_pct": 56.5,
+    "wind_speed_kmh": 8.0,
+    "tidal_height_m": 0.0
+  },
+  "Villupuram": {
+    "rainfall_mm": 4.1,
+    "temperature_c": 34.9,
+    "water_level_m": 3.43,
+    "humidity_pct": 73.2,
+    "wind_speed_kmh": 17.1,
+    "tidal_height_m": 2.17
+  },
+  "Kallakurichi": {
+    "rainfall_mm": 3.0,
+    "temperature_c": 39.3,
+    "water_level_m": 15.0,
+    "humidity_pct": 74.4,
+    "wind_speed_kmh": 11.3,
+    "tidal_height_m": 0.0
+  },
+  "Chengalpattu": {
+    "rainfall_mm": 3.6,
+    "temperature_c": 38.3,
+    "water_level_m": 15.0,
+    "humidity_pct": 65.4,
+    "wind_speed_kmh": 9.0,
+    "tidal_height_m": 0.0
+  },
+  "Tiruvarur": {
+    "rainfall_mm": 4.1,
+    "temperature_c": 38.1,
+    "water_level_m": 1.43,
+    "humidity_pct": 77.4,
+    "wind_speed_kmh": 14.8,
+    "tidal_height_m": 0.0
+  },
+  "Tirupathur": {
+    "rainfall_mm": 3.0,
+    "temperature_c": 38.9,
+    "water_level_m": 4.57,
+    "humidity_pct": 75.3,
+    "wind_speed_kmh": 8.4,
+    "tidal_height_m": 0.0
+  },
+  "Tenkasi": {
+    "rainfall_mm": 5.7,
+    "temperature_c": 38.2,
+    "water_level_m": 1.99,
+    "humidity_pct": 72.8,
+    "wind_speed_kmh": 18.3,
+    "tidal_height_m": 0.0
+  },
+  "Mayiladuthurai": {
+    "rainfall_mm": 3.8,
+    "temperature_c": 36.5,
+    "water_level_m": 1.33,
+    "humidity_pct": 77.8,
+    "wind_speed_kmh": 23.6,
+    "tidal_height_m": 0.0
+  },
+  "Kanyakumari": {
+    "rainfall_mm": 3.2,
+    "temperature_c": 39.0,
+    "water_level_m": 1.12,
+    "humidity_pct": 81.5,
+    "wind_speed_kmh": 17.9,
+    "tidal_height_m": 0.0
+  }
+}
