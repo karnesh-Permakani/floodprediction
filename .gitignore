@@ -12,8 +12,15 @@ __pycache__/
 *.egg-info/
 .env
 
-# Large ML model files (too big for GitHub - use Git LFS or store separately)
+# Large ML model & data files (exceed GitHub 100MB limit)
 backend/flood_model.pkl
+backend/scaler.pkl
+backend/feature_cols.pkl
+dataset/rwl_manual_hr_cwc_27_2021_2025.csv
+dataset/train.csv
+dataset/test.csv
+dataset/sample_submission.csv
+# Keep small dataset files (flood.csv, tide data, etc.) — they are under 10MB
 
 # Logs
 *.log
