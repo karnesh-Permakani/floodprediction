@@ -8,7 +8,8 @@ import LiveMap   from './pages/LiveMap';
 import Districts from './pages/Districts';
 import History   from './pages/History';
 import Safety    from './pages/Safety';
-import About     from './pages/About';
+import About        from './pages/About';
+import LiveDistrict from './pages/LiveDistrict';
 import './index.css';
 
 function ProtectedLayout({ user, onLogin, theme, onToggleTheme }) {
@@ -22,7 +23,8 @@ function ProtectedLayout({ user, onLogin, theme, onToggleTheme }) {
         <Route path="/districts" element={<Districts />} />
         <Route path="/history"   element={<History />} />
         <Route path="/safety"    element={<Safety />} />
-        <Route path="/about"     element={<About />} />
+        <Route path="/about"          element={<About />} />
+        <Route path="/live-district"   element={<LiveDistrict />} />
         <Route path="*"          element={<Navigate to="/" />} />
       </Routes>
     </>

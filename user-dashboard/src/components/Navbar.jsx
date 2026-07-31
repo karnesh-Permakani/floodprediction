@@ -2,12 +2,13 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { clearSession } from '../utils/auth';
 
 const links = [
-  { to: '/',          label: 'Dashboard' },
-  { to: '/map',       label: 'Live Map' },
-  { to: '/districts', label: 'Districts' },
-  { to: '/history',   label: 'History' },
-  { to: '/safety',    label: 'Safety' },
-  { to: '/about',     label: 'About' },
+  { to: '/',               label: 'Dashboard' },
+  { to: '/map',            label: 'Live Map' },
+  { to: '/live-district',  label: '📍 Live District' },
+  { to: '/districts',      label: 'Districts' },
+  { to: '/history',        label: 'History' },
+  { to: '/safety',         label: 'Safety' },
+  { to: '/about',          label: 'About' },
 ];
 
 export default function Navbar({ user, theme, onToggleTheme }) {
