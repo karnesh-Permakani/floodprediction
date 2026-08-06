@@ -257,7 +257,7 @@ body {
 /* ═══════════════════════════════════════════════
    PAGE LAYOUT
 ═══════════════════════════════════════════════ */
-.page { padding-top: 80px; min-height: 100vh; }
+.page { padding-top: 90px; min-height: 100vh; }
 .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
 .page-header { margin-bottom: 32px; }
 .page-header h1 { font-size: 28px; font-weight: 800; margin-bottom: 4px; }

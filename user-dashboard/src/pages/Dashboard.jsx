@@ -221,89 +221,140 @@ function LoRaSensorPanel() {
 
   const rtStatus   = data?.rt_status || '';
   const rtMessage  = data?.rt_message || '';
-  const overflow   = data?.overflow   || false;
-  const alertColor = overflow || rtStatus === 'DANGER'  ? '#ef4444'
-                   : rtStatus === 'WARNING'             ? '#f97316'
-                   : '#22c55e';
-  const alertLabel = overflow ? 'OVERFLOW!' : (rtStatus || (status === 'online' ? 'LIVE' : status.toUpperCase()));
+  const overflow   = Boolean(data?.overflow);
+  const alertFlag  = Boolean(data?.alert);
+  const isAlert    = alertFlag || overflow || rtStatus === 'DANGER';
+  const cityName   = 'TIRUNELVELI';
+
+  const containerStyle = isAlert
+    ? {
+        padding: 24,
+        background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.95), rgba(153, 27, 27, 0.98))',
+        border: '2.5px solid #ff4d4d',
+        boxShadow: '0 0 35px rgba(239, 68, 68, 0.6)',
+        color: '#ffffff',
+        borderRadius: 16,
+        transition: 'all 0.3s ease'
+      }
+    : {
+        padding: 24,
+        background: 'linear-gradient(145deg, #1e293b, #0f172a)',
+        border: '1.5px solid rgba(59, 130, 246, 0.4)',
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)',
+        color: '#ffffff',
+        borderRadius: 16,
+        transition: 'all 0.3s ease'
+      };
 
   return (
-    <div className="card" style={{
-      padding: 24,
-      background: 'linear-gradient(145deg, rgba(15,23,42,0.95), rgba(30,41,59,0.85))',
-      border: overflow ? '1px solid #ef4444' : '1px solid rgba(255,255,255,0.06)',
-    }}>
+    <div style={containerStyle}>
       {/* Header */}
-      <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom: 18 }}>
+      <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom: 18, flexWrap:'wrap', gap: 10 }}>
         <div style={{ display:'flex', alignItems:'center', gap: 10 }}>
           <span style={{
-            width: 10, height: 10, borderRadius: '50%', display: 'inline-block',
-            background: status === 'online' ? alertColor : '#ef4444',
-            boxShadow: status === 'online' ? `0 0 10px ${alertColor}` : 'none',
+            width: 12, height: 12, borderRadius: '50%', display: 'inline-block',
+            background: isAlert ? '#ffffff' : '#10b981',
+            boxShadow: isAlert ? '0 0 15px #ffffff' : '0 0 10px #10b981',
           }}/>
-          <span className="section-title" style={{ margin: 0, fontSize: 14 }}>
-            {data?.source || 'Firebase Sensor (Tirunelveli)'}
+          <span style={{ margin: 0, fontSize: 16, fontWeight: 900, color: '#ffffff', letterSpacing: '0.5px' }}>
+            {isAlert ? `🚨 ${cityName} — FLOOD ALERT IN EFFECT!` : `📡 ${cityName} — Firebase IoT Live Sensor Stream`}
           </span>
-          {status === 'online' && (
-            <span style={{
-              fontSize: 10, fontWeight: 700, padding: '2px 8px', borderRadius: 20,
-              background: `${alertColor}22`, color: alertColor, border: `1px solid ${alertColor}55`,
-              letterSpacing: 1,
-            }}>{alertLabel}</span>
-          )}
+          <span style={{
+            fontSize: 11, fontWeight: 800, padding: '3px 10px', borderRadius: 20,
+            background: isAlert ? '#ffffff' : 'rgba(16, 185, 129, 0.2)',
+            color: isAlert ? '#dc2626' : '#34d399',
+            border: isAlert ? '1px solid #ffffff' : '1px solid #10b981',
+            letterSpacing: 1,
+            textTransform: 'uppercase'
+          }}>
+            {isAlert ? '🚨 CRITICAL ALERT' : '🟢 SAFE'}
+          </span>
         </div>
-        <div style={{ fontSize: 11, color: 'var(--text-dim)' }}>
+        <div style={{ fontSize: 12, color: isAlert ? '#fecaca' : '#94a3b8', fontWeight: 600 }}>
           {meta?.last_updated ? `Updated ${meta.last_updated}` : 'Updates every 5s'}
         </div>
       </div>
 
-      {/* Live message bar */}
-      {rtMessage && status === 'online' && (
+      {/* Alert Banner / Message Bar */}
+      {isAlert ? (
         <div style={{
-          fontSize: 12, padding: '6px 14px', borderRadius: 8, marginBottom: 16,
-          background: `${alertColor}15`, color: alertColor, border: `1px solid ${alertColor}30`,
+          fontSize: 14, fontWeight: 800, padding: '12px 18px', borderRadius: 10, marginBottom: 18,
+          background: 'rgba(0, 0, 0, 0.45)', color: '#ffffff', border: '2px solid #ffffff',
+          display: 'flex', alignItems: 'center', gap: 10
+        }}>
+          <span style={{ fontSize: 20 }}>🚨</span>
+          <div>
+            <div>FLOOD ALERT IN {cityName}: SENSOR OVERFLOW / DANGER DETECTED!</div>
+            <div style={{ fontSize: 12, fontWeight: 500, color: '#fecaca', marginTop: 2 }}>
+              {rtMessage || 'Water level threshold exceeded. Emergency response protocol active.'}
+            </div>
+          </div>
+        </div>
+      ) : rtMessage && status === 'online' ? (
+        <div style={{
+          fontSize: 13, fontWeight: 600, padding: '8px 16px', borderRadius: 8, marginBottom: 16,
+          background: 'rgba(59, 130, 246, 0.15)', color: '#93c5fd', border: '1px solid rgba(59, 130, 246, 0.3)',
         }}>
           📡 {rtMessage}
         </div>
-      )}
+      ) : null}
 
-      {/* Metric cards */}
+      {/* Metric Cards */}
       <div className="grid-3" style={{ gap: 14 }}>
         {/* Water Level */}
-        <div style={{ textAlign:'center', padding:'14px 10px', background:'rgba(59,130,246,0.07)', borderRadius:12, border:'1px solid rgba(59,130,246,0.15)' }}>
-          <div style={{ fontSize:10, color:'var(--text-muted)', marginBottom:6, letterSpacing:1 }}>WATER LEVEL</div>
-          <div style={{ fontSize:28, fontWeight:900, color:'#3b82f6', lineHeight:1 }}>
-            {data ? parseFloat(data.water_level).toFixed(3) : '--'}
-            <small style={{ fontSize:12, marginLeft:3, fontWeight:400 }}>m</small>
+        <div style={{
+          textAlign:'center', padding:'16px 12px',
+          background: isAlert ? 'rgba(0,0,0,0.4)' : '#0f172a',
+          borderRadius:12,
+          border: isAlert ? '1px solid rgba(255,255,255,0.4)' : '1px solid #3b82f6'
+        }}>
+          <div style={{ fontSize:11, fontWeight:800, color: isAlert ? '#fecaca' : '#93c5fd', marginBottom:6, letterSpacing:1 }}>
+            WATER LEVEL
           </div>
-          {data?.water_level_mm > 0 && (
-            <div style={{ fontSize:10, color:'var(--text-dim)', marginTop:4 }}>
-              {data.water_level_mm} mm raw
-            </div>
-          )}
+          <div style={{ fontSize:32, fontWeight:900, color: '#ffffff', lineHeight:1 }}>
+            {data ? parseFloat(data.water_level).toFixed(3) : '--'}
+            <small style={{ fontSize:14, marginLeft:3, fontWeight:500, color: isAlert ? '#fecaca' : '#93c5fd' }}>m</small>
+          </div>
+          <div style={{ fontSize:11, fontWeight:700, color: isAlert ? '#ffffff' : '#38bdf8', marginTop:6 }}>
+            {data?.water_level_mm || 0} mm raw
+          </div>
         </div>
 
         {/* Flow Rate */}
-        <div style={{ textAlign:'center', padding:'14px 10px', background:'rgba(6,182,212,0.07)', borderRadius:12, border:'1px solid rgba(6,182,212,0.15)' }}>
-          <div style={{ fontSize:10, color:'var(--text-muted)', marginBottom:6, letterSpacing:1 }}>FLOW RATE</div>
-          <div style={{ fontSize:28, fontWeight:900, color:'#06b6d4', lineHeight:1 }}>
-            {data ? parseFloat(data.flow_rate ?? 0).toFixed(1) : '--'}
-            <small style={{ fontSize:12, marginLeft:3, fontWeight:400 }}>L/min</small>
+        <div style={{
+          textAlign:'center', padding:'16px 12px',
+          background: isAlert ? 'rgba(0,0,0,0.4)' : '#0f172a',
+          borderRadius:12,
+          border: isAlert ? '1px solid rgba(255,255,255,0.4)' : '1px solid #06b6d4'
+        }}>
+          <div style={{ fontSize:11, fontWeight:800, color: isAlert ? '#fecaca' : '#a5f3fc', marginBottom:6, letterSpacing:1 }}>
+            FLOW RATE
           </div>
-          <div style={{ fontSize:10, color:'var(--text-dim)', marginTop:4 }}>
+          <div style={{ fontSize:32, fontWeight:900, color: '#ffffff', lineHeight:1 }}>
+            {data ? parseFloat(data.flow_rate ?? 0).toFixed(1) : '--'}
+            <small style={{ fontSize:14, marginLeft:3, fontWeight:500, color: isAlert ? '#fecaca' : '#a5f3fc' }}>L/min</small>
+          </div>
+          <div style={{ fontSize:11, fontWeight:700, color: isAlert ? '#ffffff' : '#22d3ee', marginTop:6 }}>
             Rainfall proxy: {data ? parseFloat(data.rainfall ?? 0).toFixed(1) : '--'} mm
           </div>
         </div>
 
         {/* Temperature */}
-        <div style={{ textAlign:'center', padding:'14px 10px', background:'rgba(249,115,22,0.07)', borderRadius:12, border:'1px solid rgba(249,115,22,0.15)' }}>
-          <div style={{ fontSize:10, color:'var(--text-muted)', marginBottom:6, letterSpacing:1 }}>TEMPERATURE</div>
-          <div style={{ fontSize:28, fontWeight:900, color:'#f97316', lineHeight:1 }}>
-            {data ? data.temperature : '--'}
-            <small style={{ fontSize:12, marginLeft:3, fontWeight:400 }}>°C</small>
+        <div style={{
+          textAlign:'center', padding:'16px 12px',
+          background: isAlert ? 'rgba(0,0,0,0.4)' : '#0f172a',
+          borderRadius:12,
+          border: isAlert ? '1px solid rgba(255,255,255,0.4)' : '1px solid #f97316'
+        }}>
+          <div style={{ fontSize:11, fontWeight:800, color: isAlert ? '#fecaca' : '#fed7aa', marginBottom:6, letterSpacing:1 }}>
+            TEMPERATURE
           </div>
-          <div style={{ fontSize:10, color:'var(--text-dim)', marginTop:4 }}>
-            Overflow: <span style={{ color: overflow ? '#ef4444' : '#22c55e', fontWeight:700 }}>{overflow ? 'YES ⚠️' : 'No'}</span>
+          <div style={{ fontSize:32, fontWeight:900, color: '#ffffff', lineHeight:1 }}>
+            {data ? data.temperature : '--'}
+            <small style={{ fontSize:14, marginLeft:3, fontWeight:500, color: isAlert ? '#fecaca' : '#fed7aa' }}>°C</small>
+          </div>
+          <div style={{ fontSize:11, fontWeight:800, color: overflow ? '#ffffff' : '#4ade80', marginTop:6 }}>
+            Overflow: {overflow ? '🚨 YES (OVERFLOW!)' : '✅ No'}
           </div>
         </div>
       </div>

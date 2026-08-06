@@ -1,21 +1,17 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-import { clearSession } from '../utils/auth';
+import { NavLink } from 'react-router-dom';
 
 const links = [
   { to: '/',               label: 'Dashboard' },
   { to: '/map',            label: 'Live Map' },
   { to: '/live-district',  label: '📍 Live District' },
-  { to: '/ai-training',     label: '🧠 AI Training' },
+  { to: '/ai-training',    label: '🧠 AI Training' },
   { to: '/districts',      label: 'Districts' },
   { to: '/history',        label: 'History' },
   { to: '/safety',         label: 'Safety' },
   { to: '/about',          label: 'About' },
 ];
 
-export default function Navbar({ user, theme, onToggleTheme }) {
-  const navigate = useNavigate();
-  function logout() { clearSession(); navigate('/login'); }
-
+export default function Navbar({ theme, onToggleTheme }) {
   return (
     <nav className="nav">
       <div className="nav-logo">⛈ Flood Guard TN</div>
@@ -32,24 +28,18 @@ export default function Navbar({ user, theme, onToggleTheme }) {
         ))}
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div className="live-dot">LIVE</div>
-        <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>
-          👤 {user?.email?.split('@')[0]}
-        </div>
+        <div className="live-dot">LIVE MONITORING</div>
         {/* Theme toggle */}
         <button
           onClick={onToggleTheme}
           title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           style={{
             background: 'var(--border)', border: 'none', cursor: 'pointer',
-            borderRadius: 20, padding: '5px 10px', fontSize: 14,
-            transition: 'all 0.2s', color: 'var(--text-muted)'
+            borderRadius: 20, padding: '5px 12px', fontSize: 14,
+            transition: 'all 0.2s', color: 'var(--text)'
           }}
         >
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
-        <button className="btn btn-ghost" onClick={logout} style={{ padding: '7px 14px', fontSize: 12 }}>
-          Logout
+          {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
         </button>
       </div>
     </nav>

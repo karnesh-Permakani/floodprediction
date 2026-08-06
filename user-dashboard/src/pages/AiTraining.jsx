@@ -306,7 +306,7 @@ export default function AiTraining() {
       minHeight: '100vh',
       background: 'var(--bg, #0b0f19)',
       color: 'var(--text-main, #f8fafc)',
-      padding: '28px 24px 60px',
+      padding: '95px 24px 60px',
       fontFamily: 'Inter, system-ui, sans-serif'
     }}>
       <style>{`

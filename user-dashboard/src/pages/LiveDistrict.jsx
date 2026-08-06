@@ -290,7 +290,7 @@ export default function LiveDistrict() {
   const pageStyle = {
     minHeight:'100vh', background:'var(--bg)', color:'var(--text-main)',
     fontFamily:'var(--font-main, Inter, sans-serif)',
-    padding:'24px 20px 40px'
+    padding:'95px 20px 40px'
   };
 
   return (
