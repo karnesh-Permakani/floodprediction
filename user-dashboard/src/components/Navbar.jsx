@@ -5,6 +5,7 @@ const links = [
   { to: '/',               label: 'Dashboard' },
   { to: '/map',            label: 'Live Map' },
   { to: '/live-district',  label: '📍 Live District' },
+  { to: '/ai-training',     label: '🧠 AI Training' },
   { to: '/districts',      label: 'Districts' },
   { to: '/history',        label: 'History' },
   { to: '/safety',         label: 'Safety' },

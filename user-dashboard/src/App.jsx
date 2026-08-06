@@ -10,6 +10,7 @@ import History   from './pages/History';
 import Safety    from './pages/Safety';
 import About        from './pages/About';
 import LiveDistrict from './pages/LiveDistrict';
+import AiTraining   from './pages/AiTraining';
 import './index.css';
 
 function ProtectedLayout({ user, onLogin, theme, onToggleTheme }) {
@@ -25,6 +26,7 @@ function ProtectedLayout({ user, onLogin, theme, onToggleTheme }) {
         <Route path="/safety"    element={<Safety />} />
         <Route path="/about"          element={<About />} />
         <Route path="/live-district"   element={<LiveDistrict />} />
+        <Route path="/ai-training"     element={<AiTraining />} />
         <Route path="*"          element={<Navigate to="/" />} />
       </Routes>
     </>
